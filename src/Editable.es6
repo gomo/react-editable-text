@@ -7,7 +7,7 @@ export default class Editable extends React.Component {
     this.state = {
       lable: "",
       editable: false,
-      value: this.props.initialValue,
+      value: this.props.value,
       saving: false
     };
 
@@ -18,6 +18,15 @@ export default class Editable extends React.Component {
     this.setState({editable: true});
     this.firstValue = this.state.value;
     this.refs.element.focus();
+  }
+
+  componentWillReceiveProps(nextProps){
+    for(var key in nextProps){
+      if(this.props[key] != nextProps[key]){
+        this.setState(nextProps);
+        break;
+      }
+    }
   }
 
   onClickCancel(){
@@ -59,7 +68,7 @@ Editable.propTypes = {
   cancelLabel: React.PropTypes.string,
   saveLabel: React.PropTypes.string,
   editLabel: React.PropTypes.string,
-  initialValue: React.PropTypes.string,
+  value: React.PropTypes.string,
   saveBtnClass: React.PropTypes.string,
   cancelBtnClass: React.PropTypes.string,
   editBtnClass: React.PropTypes.string,

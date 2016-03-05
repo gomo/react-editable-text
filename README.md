@@ -39,7 +39,7 @@ export default class GuestEditView extends React.Component
           editLabel='<i class="fa fa-pencil"></i>'
           saveLabel='<i class="fa fa-floppy-o"></i>'
           cancelLabel='<i class="fa fa-ban"></i>'
-          initialValue='Initial line value'
+          value='Initial line value'
         />
         <Box
           label='<i class="fa fa-list-alt"></i>&nbsp;Memo'
@@ -47,7 +47,7 @@ export default class GuestEditView extends React.Component
           editLabel='<i class="fa fa-pencil"></i>'
           saveLabel='<i class="fa fa-floppy-o"></i>'
           cancelLabel='<i class="fa fa-ban"></i>'
-          initialValue='Initial box value'
+          value='Initial box value'
         />
       </div>
     );

@@ -1,6 +1,6 @@
 # react-editable-text
 
-The editable text component for [facebook react](https://facebook.github.io/react/).`Box` use `textarea` element, `Line` use `input[type=text]` element.
+Editable text line or box component for [facebook react](https://facebook.github.io/react/).`Box` use `textarea` element, `Line` use `input[type=text]` element.
 
 I recommend using with [Bootstrap](http://getbootstrap.com/).
 

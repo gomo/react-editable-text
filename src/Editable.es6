@@ -21,11 +21,10 @@ export default class Editable extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    for(var key in nextProps){
-      if(this.props[key] != nextProps[key]){
-        this.setState(nextProps);
-        break;
-      }
+    if(nextProps.value && this.props.value != nextProps.value){
+      this.setState({
+        value: nextProps.value
+      });
     }
   }
 

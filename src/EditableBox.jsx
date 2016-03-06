@@ -4,7 +4,7 @@ import Editable from './Editable'
 export default class EditableBox extends Editable {
   render() {
     return (
-      <div className="react-editable-textarea">
+      <div className="react-editable-text box">
         <div className="header clearfix">
           <label className="pull-left" dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'label')}></label>
           <div className="buttons pull-right">

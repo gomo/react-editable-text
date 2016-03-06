@@ -4,7 +4,7 @@ import Editable from './Editable'
 export default class EditableLine extends Editable {
   render() {
     return (
-      <div className="input-group">
+      <div className="input-group react-editable-text line">
         {(() => {
           if(this.state.editable){
             return (

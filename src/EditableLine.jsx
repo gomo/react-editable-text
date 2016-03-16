@@ -18,7 +18,7 @@ export default class EditableLine extends Editable {
             );
           }
         })()}
-        <input type="text" ref="element" className="form-control" disabled={this.state.saving ? "disabled" : null} readOnly={this.state.editable ? null : "readOnly"} value={this.state.value} onChange={(e)=>{this.onChangeValue(e)}} />
+        <input onKeyUp={(e) => this.onKeyUp(e)} onKeyPress={(e) => this.onKeyPress(e)} type="text" ref="element" className="form-control" disabled={this.state.saving ? "disabled" : null} readOnly={this.state.editable ? null : "readOnly"} value={this.state.value} onChange={(e)=>{this.onChangeValue(e)}} />
         <span className="input-group-btn">
         {(() => {
           if(this.state.editable){

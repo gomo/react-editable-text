@@ -24,7 +24,7 @@ export default class EditableBox extends Editable {
           </div>
         </div>
         <div className="body">
-          <textarea ref="element" className="form-control" disabled={this.state.saving ? "disabled" : null} readOnly={this.state.editable ? null : "readOnly"} value={this.state.value} onChange={(e)=>{this.onChangeValue(e)}} />
+          <textarea onKeyUp={(e) => this.onKeyUp(e)} onKeyPress={(e) => this.onKeyPress(e)} ref="element" className="form-control" disabled={this.state.saving ? "disabled" : null} readOnly={this.state.editable ? null : "readOnly"} value={this.state.value} onChange={(e)=>{this.onChangeValue(e)}} />
         </div>
       </div>
     );
@@ -41,5 +41,3 @@ defaultProps.cancelBtnClass += ' btn-xs';
 defaultProps.editBtnClass += ' btn-xs';
 
 EditableBox.defaultProps = defaultProps;
-
-

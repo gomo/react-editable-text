@@ -40,6 +40,7 @@ export default class GuestEditView extends React.Component
           saveLabel='<i class="fa fa-floppy-o"></i>'
           cancelLabel='<i class="fa fa-ban"></i>'
           value='Initial line value'
+          needsSaveOnKeyPress = {(e) => this.needsSaveOnKeyPressInInputText(e)}
         />
         <Box
           label='<i class="fa fa-list-alt"></i>&nbsp;Memo'
@@ -48,12 +49,33 @@ export default class GuestEditView extends React.Component
           saveLabel='<i class="fa fa-floppy-o"></i>'
           cancelLabel='<i class="fa fa-ban"></i>'
           value='Initial box value'
+          needsSaveOnKeyPress = {(e) => this.needsSaveOnKeyPressInTextarea(e)}
         />
       </div>
     );
   }
 }
 
+```
+
+If you want save when some key press in the element, Set `needsSaveOnKeyPress` callback, and return `true`.
+
+```js
+  needsSaveOnKeyPressInInputText(e){
+    if(e.charCode == 13){
+      return true;
+    }
+
+    return false;
+  }
+
+  needsSaveOnKeyPressInTextarea(e){
+    if(e.charCode == 13 && e.shiftKey){
+      return true;
+    }
+
+    return false;
+  }
 ```
 
 All labels are set to [dangerouslySetInnerHTML](https://facebook.github.io/react/tips/dangerously-set-inner-html.html).Please note the "cross-site scripting".

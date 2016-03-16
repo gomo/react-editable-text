@@ -57,8 +57,29 @@ export default class Editable extends React.Component {
     });
   }
 
+  back(){
+    this.setState({
+      editable: true,
+      saving: false
+    }); 
+  }
+
   getInnerHtml(target, key){
     return {__html: target[key]}
+  }
+
+  onKeyPress(e){
+    if(this.props.needsSaveOnKeyPress(e)){
+      e.preventDefault();
+      this.onClickSave(e);
+      return false;
+    }
+  }
+
+  onKeyUp(e){
+    if(e.keyCode == 27){//ESCキー
+      this.onClickCancel();
+    }
   }
 }
 
@@ -71,7 +92,8 @@ Editable.propTypes = {
   saveBtnClass: React.PropTypes.string,
   cancelBtnClass: React.PropTypes.string,
   editBtnClass: React.PropTypes.string,
-  onSave: React.PropTypes.func.isRequired
+  onSave: React.PropTypes.func.isRequired,
+  needsSaveOnKeyPress: React.PropTypes.func
 }
 
 Editable.defaultProps = {
@@ -82,4 +104,5 @@ Editable.defaultProps = {
   saveBtnClass: 'btn btn-warning',
   cancelBtnClass: 'btn btn-default',
   editBtnClass: 'btn btn-primary',
+  needsSaveOnKeyPress: () => false
 };

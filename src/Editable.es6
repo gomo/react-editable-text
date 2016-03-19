@@ -15,7 +15,10 @@ export default class Editable extends React.Component {
   }
 
   onClickEdit(e){
-    this.setState({editable: true});
+    this.setState({
+      editable: true,
+      saving: false
+    });
     this.firstValue = this.state.value;
     this.refs.element.focus();
   }

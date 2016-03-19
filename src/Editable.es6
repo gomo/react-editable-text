@@ -12,15 +12,18 @@ export default class Editable extends React.Component {
     };
 
     this.firstValue;
+    this.keyDownCode;
   }
 
   onClickEdit(e){
-    this.setState({
-      editable: true,
-      saving: false
-    });
-    this.firstValue = this.state.value;
-    this.refs.element.focus();
+    if(!this.state.saving){
+      this.setState({
+        editable: true,
+        saving: false
+      });
+      this.firstValue = this.state.value;
+      this.refs.element.focus();      
+    }
   }
 
   componentWillReceiveProps(nextProps){
@@ -32,10 +35,12 @@ export default class Editable extends React.Component {
   }
 
   onClickCancel(){
-    this.setState({
-      editable: false,
-      value: this.firstValue
-    });
+    if(!this.state.saving){
+      this.setState({
+        editable: false,
+        value: this.firstValue
+      });      
+    }
   }
 
   onChangeValue(e){
@@ -44,7 +49,10 @@ export default class Editable extends React.Component {
 
   onClickSave(e){
     if(this.firstValue == this.state.value){
-      this.fix();
+      this.setState({
+        editable: false,
+        saving: false
+      });
     } else {
       this.setState({saving: true});
       this.props.onSave(this.state.value, this);      
@@ -53,14 +61,19 @@ export default class Editable extends React.Component {
     e.target.blur();
   }
 
-  fix(){
-    this.setState({
+  success(value){
+    var state = {
       editable: false,
       saving: false
-    });
+    };
+
+    if(value !== undefined){
+      state.value = value;
+    }
+    this.setState(state);
   }
 
-  back(){
+  fail(){
     this.setState({
       editable: true,
       saving: false
@@ -79,8 +92,13 @@ export default class Editable extends React.Component {
     }
   }
 
+  onKeyDown(e){
+    //日本語IMEの入力対策
+    this.keyDownCode = e.keyCode;
+  }
+
   onKeyUp(e){
-    if(e.keyCode == 27){//ESCキー
+    if(this.keyDownCode == e.keyCode && e.keyCode == 27){//ESCキー
       this.onClickCancel();
     }
   }

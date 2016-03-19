@@ -35,7 +35,7 @@ export default class GuestEditView extends React.Component
       <div>
         <Line
           label='<i class="fa fa-user"></i>'
-          onSave={this.onSaveMemo}
+          onSave={(value, editable) => this.onSave(value, editable)}
           editLabel='<i class="fa fa-pencil"></i>'
           saveLabel='<i class="fa fa-floppy-o"></i>'
           cancelLabel='<i class="fa fa-ban"></i>'
@@ -44,7 +44,7 @@ export default class GuestEditView extends React.Component
         />
         <Box
           label='<i class="fa fa-list-alt"></i>&nbsp;Memo'
-          onSave={this.onSaveMemo}
+          onSave={(value, editable) => this.onSave(value, editable)}
           editLabel='<i class="fa fa-pencil"></i>'
           saveLabel='<i class="fa fa-floppy-o"></i>'
           cancelLabel='<i class="fa fa-ban"></i>'
@@ -58,7 +58,24 @@ export default class GuestEditView extends React.Component
 
 ```
 
-If you want save when some key press in the element, Set `needsSaveOnKeyPress` callback, and return `true`.
+`onSave` sample is here. Second arg `editable` is this component.
+
+```js
+  onSave(value, editable){
+    $.ajax({
+      url: '/ajax/save',
+      data:{value: value}
+    }).done(() => {
+      // change to fix mode
+      editable.success();
+    }).fail(() => {
+      // back to edit mode
+      editable.fail();
+    });
+  }
+```
+
+If you want save when some key press in the element, Set callback to `needsSaveOnKeyPress` props, and return `true`.The arg is keypress event.
 
 ```js
   needsSaveOnKeyPressInInputText(e){

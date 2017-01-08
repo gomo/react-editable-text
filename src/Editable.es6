@@ -16,13 +16,13 @@ export default class Editable extends React.Component {
   }
 
   onClickEdit(e){
-    if(!this.state.saving){
+    if(!this.state.saving && !this.state.editable){
       this.setState({
         editable: true,
         saving: false
       });
       this.firstValue = this.state.value;
-      this.refs.element.focus();      
+      this.refs.element.focus();
     }
   }
 
@@ -39,7 +39,7 @@ export default class Editable extends React.Component {
       this.setState({
         editable: false,
         value: this.firstValue
-      });      
+      });
     }
   }
 
@@ -55,7 +55,7 @@ export default class Editable extends React.Component {
       });
     } else {
       this.setState({saving: true});
-      this.props.onSave(this.state.value, this);      
+      this.props.onSave(this.state.value, this);
     }
 
     e.target.blur();
@@ -77,7 +77,7 @@ export default class Editable extends React.Component {
     this.setState({
       editable: true,
       saving: false
-    }); 
+    });
   }
 
   getInnerHtml(target, key){

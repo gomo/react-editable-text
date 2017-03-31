@@ -16,13 +16,20 @@ export default class Editable extends React.Component {
   }
 
   onClickEdit(e){
-    if(!this.state.saving && !this.state.editable){
-      this.setState({
-        editable: true,
-        saving: false
-      });
-      this.firstValue = this.state.value;
-      this.refs.element.focus();
+    var needsEdit = true;
+    if(this.props.onClickEdit){
+      needsEdit = this.props.onClickEdit(e, this);
+    }
+
+    if(needsEdit === true){
+      if(!this.state.saving && !this.state.editable){
+        this.setState({
+          editable: true,
+          saving: false
+        });
+        this.firstValue = this.state.value;
+        this.refs.element.focus();
+      }
     }
   }
 

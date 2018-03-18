@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 export default class Editable extends React.Component {
   constructor(props) {
@@ -112,16 +112,16 @@ export default class Editable extends React.Component {
 }
 
 Editable.propTypes = {
-  label: React.PropTypes.string,
-  cancelLabel: React.PropTypes.string,
-  saveLabel: React.PropTypes.string,
-  editLabel: React.PropTypes.string,
-  value: React.PropTypes.string,
-  saveBtnClass: React.PropTypes.string,
-  cancelBtnClass: React.PropTypes.string,
-  editBtnClass: React.PropTypes.string,
-  onSave: React.PropTypes.func.isRequired,
-  needsSaveOnKeyPress: React.PropTypes.func
+  label: PropTypes.string,
+  cancelLabel: PropTypes.string,
+  saveLabel: PropTypes.string,
+  editLabel: PropTypes.string,
+  value: PropTypes.string,
+  saveBtnClass: PropTypes.string,
+  cancelBtnClass: PropTypes.string,
+  editBtnClass: PropTypes.string,
+  onSave: PropTypes.func.isRequired,
+  needsSaveOnKeyPress: PropTypes.func
 }
 
 Editable.defaultProps = {

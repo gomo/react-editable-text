@@ -1,0 +1,12 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "modules": "auto",
+      "targets": {
+        "browsers": "> 1%"
+      },
+      "useBuiltIns": false
+    }],
+    "@babel/react"
+  ]
+}

@@ -15,20 +15,6 @@ gulp.task('build-src', () => {
     .pipe(gulp.dest('lib'));
 });
 
-gulp.task('build-sample', () => {
-  return gulp.src('sample/src.js')
-    .pipe(babel({
-      presets: ['@babel/env', '@babel/react']
-    }))
-    .on("error", function (err) {
-      console.log('');
-      console.log(err.message);
-      console.log('' + err.codeFrame);
-      this.emit('end');
-    })
-    .pipe(gulp.dest('sample/index.js'));
-});
-
 gulp.task('watch', function() {
   gulp.watch(['src/*'], ['build-src']);
 });

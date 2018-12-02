@@ -1,6 +1,6 @@
 {
   "name": "react-editable-text",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Editable text line or box component for [facebook react](https://facebook.github.io/react/).",
   "main": "index.js",
   "scripts": {

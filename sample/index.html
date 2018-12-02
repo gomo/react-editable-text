@@ -9,9 +9,29 @@
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.2/prop-types.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
   <script src="index.js"></script>
+  <style>
+    .react-editable-text .header{
+      padding: 3px 8px;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem .25rem 0 0;
+      border-bottom: none;
+    }
+    .react-editable-text textarea{
+      border-radius: 0 0 .25rem .25rem;
+    }
+    .react-editable-text .header .btn{
+      padding: 1px 5px;
+      font-size: 12px;
+      line-height: 1.5;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 <body>
-  <div id="main"></div>
+  <div class="container mt-5">
+    <div id="main"></div>
+  </div>
 </body>
 </html>

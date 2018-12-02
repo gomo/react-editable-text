@@ -5,9 +5,9 @@ export default class EditableBox extends Editable {
   render() {
     return (
       <div className="react-editable-text box">
-        <div className="header clearfix">
-          <label className="pull-left" dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'label')}></label>
-          <div className="buttons pull-right">
+        <div className="header d-flex justify-content-between align-items-center">
+          <label className="mb-0" dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'label')}></label>
+          <div className="buttons">
             {(() => {
               if(this.state.editable){
                 return (

@@ -121,7 +121,8 @@ Editable.propTypes = {
   cancelBtnClass: PropTypes.string,
   editBtnClass: PropTypes.string,
   onSave: PropTypes.func.isRequired,
-  needsSaveOnKeyPress: PropTypes.func
+  needsSaveOnKeyPress: PropTypes.func,
+  onClickEdit: PropTypes.func
 }
 
 Editable.defaultProps = {
@@ -130,7 +131,7 @@ Editable.defaultProps = {
   saveLabel: 'Save',
   editLabel: 'Edit',
   saveBtnClass: 'btn btn-warning',
-  cancelBtnClass: 'btn btn-default',
+  cancelBtnClass: 'btn btn-secondary',
   editBtnClass: 'btn btn-primary',
   needsSaveOnKeyPress: () => false
 };

@@ -97,9 +97,99 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_EditableBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../src/EditableBox */ "./src/EditableBox.js");
 /* harmony import */ var _src_EditableLine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/EditableLine */ "./src/EditableLine.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-console.log(_src_EditableBox__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+
+var App =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
+    _this.state = {
+      value: ''
+    };
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "card mb-5"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_EditableLine__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: "<i class=\"fa fa-user\"></i>",
+        onSave: function onSave(value, editable) {
+          return _this2.onSaveName(value, editable);
+        },
+        value: this.state.value,
+        editLabel: "<i class=\"fas fa-pencil-alt\"></i>",
+        cancelLabel: "<i class=\"fa fa-times\"></i>",
+        saveLabel: "<i class=\"far fa-save\"></i>",
+        needsSaveOnKeyPress: function needsSaveOnKeyPress(e) {
+          return true;
+        } // onClickEdit={() => this.onClickEdit()}
+
+      }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "card mb-5"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_EditableBox__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        label: "<i class=\"fa fa-user\"></i>",
+        onSave: function onSave(value, editable) {
+          return _this2.onSaveName(value, editable);
+        },
+        value: this.state.value,
+        editLabel: "<i class=\"fas fa-pencil-alt\"></i>",
+        cancelLabel: "<i class=\"fa fa-times\"></i>",
+        saveLabel: "<i class=\"far fa-save\"></i>",
+        needsSaveOnKeyPress: function needsSaveOnKeyPress(e) {
+          return true;
+        } // onClickEdit={() => this.onClickEdit()}
+
+      }))));
+    }
+  }]);
+
+  return App;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+window.onload = function () {
+  Object(react_dom__WEBPACK_IMPORTED_MODULE_3__["render"])(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(App, null), document.getElementById('main'));
+};
 
 /***/ }),
 
@@ -291,7 +381,8 @@ Editable.propTypes = {
   cancelBtnClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   editBtnClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   onSave: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
-  needsSaveOnKeyPress: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
+  needsSaveOnKeyPress: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
+  onClickEdit: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
 };
 Editable.defaultProps = {
   label: '',
@@ -299,7 +390,7 @@ Editable.defaultProps = {
   saveLabel: 'Save',
   editLabel: 'Edit',
   saveBtnClass: 'btn btn-warning',
-  cancelBtnClass: 'btn btn-default',
+  cancelBtnClass: 'btn btn-secondary',
   editBtnClass: 'btn btn-primary',
   needsSaveOnKeyPress: function needsSaveOnKeyPress() {
     return false;
@@ -361,12 +452,12 @@ function (_Editable) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "react-editable-text box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header clearfix"
+        className: "header d-flex justify-content-between align-items-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "pull-left",
+        className: "mb-0",
         dangerouslySetInnerHTML: this.getInnerHtml(this.props, 'label')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "buttons pull-right"
+        className: "buttons"
       }, function () {
         if (_this.state.editable) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -592,6 +683,17 @@ module.exports = PropTypes;
 /***/ (function(module, exports) {
 
 module.exports = React;
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ReactDOM;
 
 /***/ })
 

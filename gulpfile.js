@@ -4,7 +4,7 @@ var babel = require('gulp-babel');
 gulp.task('build-src', () => {
   return gulp.src('src/*')
     .pipe(babel({
-      presets: ['es2015', 'react']
+      presets: ['@babel/env', '@babel/react']
     }))
     .on("error", function (err) {
       console.log('');
@@ -13,6 +13,20 @@ gulp.task('build-src', () => {
       this.emit('end');
     })
     .pipe(gulp.dest('lib'));
+});
+
+gulp.task('build-sample', () => {
+  return gulp.src('sample/src.js')
+    .pipe(babel({
+      presets: ['@babel/env', '@babel/react']
+    }))
+    .on("error", function (err) {
+      console.log('');
+      console.log(err.message);
+      console.log('' + err.codeFrame);
+      this.emit('end');
+    })
+    .pipe(gulp.dest('sample/index.js'));
 });
 
 gulp.task('watch', function() {

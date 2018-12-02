@@ -1,5 +1,6 @@
 import React from 'react';
 import Editable from './Editable'
+import classNames from 'classnames'
 
 export default class EditableBox extends Editable {
   render() {
@@ -29,7 +30,8 @@ export default class EditableBox extends Editable {
             onKeyDown={(e) => this.onKeyDown(e)}
             onKeyUp={(e) => this.onKeyUp(e)}
             onKeyPress={(e) => this.onKeyPress(e)}
-            ref="element" className="form-control"
+            ref="element"
+            className={classNames('form-control', this.props.formElemClass)}
             disabled={this.state.saving ? "disabled" : null} readOnly={this.state.editable ? null : "readOnly"}
             value={this.state.value}
             onChange={(e)=>{this.onChangeValue(e)}}

@@ -86,6 +86,68 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/classnames/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/classnames/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
+
 /***/ "./sample/src.js":
 /*!***********************!*\
   !*** ./sample/src.js ***!
@@ -161,7 +223,8 @@ function (_React$Component) {
         saveLabel: "<i class=\"far fa-save\"></i>",
         needsSaveOnKeyPress: function needsSaveOnKeyPress(e) {
           return true;
-        } // onClickEdit={() => this.onClickEdit()}
+        },
+        formElemClass: "foobar" // onClickEdit={() => this.onClickEdit()}
 
       }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "card mb-5"
@@ -178,7 +241,8 @@ function (_React$Component) {
         saveLabel: "<i class=\"far fa-save\"></i>",
         needsSaveOnKeyPress: function needsSaveOnKeyPress(e) {
           return true;
-        } // onClickEdit={() => this.onClickEdit()}
+        },
+        formElemClass: "foobar" // onClickEdit={() => this.onClickEdit()}
 
       }))));
     }
@@ -380,6 +444,7 @@ Editable.propTypes = {
   saveBtnClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   cancelBtnClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   editBtnClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  formElemClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   onSave: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
   needsSaveOnKeyPress: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
   onClickEdit: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
@@ -412,6 +477,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Editable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Editable */ "./src/Editable.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -429,6 +496,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -498,7 +566,7 @@ function (_Editable) {
           return _this.onKeyPress(e);
         },
         ref: "element",
-        className: "form-control",
+        className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('form-control', this.props.formElemClass),
         disabled: this.state.saving ? "disabled" : null,
         readOnly: this.state.editable ? null : "readOnly",
         value: this.state.value,
@@ -540,6 +608,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Editable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Editable */ "./src/Editable.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -557,6 +627,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -612,7 +683,7 @@ function (_Editable) {
         },
         type: "text",
         ref: "element",
-        className: "form-control",
+        className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('form-control', this.props.formElemClass),
         disabled: this.state.saving ? "disabled" : null,
         readOnly: this.state.editable ? null : "readOnly",
         value: this.state.value,

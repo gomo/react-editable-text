@@ -120,6 +120,7 @@ Editable.propTypes = {
   saveBtnClass: PropTypes.string,
   cancelBtnClass: PropTypes.string,
   editBtnClass: PropTypes.string,
+  formElemClass: PropTypes.string,
   onSave: PropTypes.func.isRequired,
   needsSaveOnKeyPress: PropTypes.func,
   onClickEdit: PropTypes.func

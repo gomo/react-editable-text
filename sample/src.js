@@ -24,6 +24,7 @@ class App extends React.Component {
                 cancelLabel='<i class="fa fa-times"></i>'
                 saveLabel='<i class="far fa-save"></i>'
                 needsSaveOnKeyPress={(e) => true}
+                formElemClass="foobar"
                 // onClickEdit={() => this.onClickEdit()}
               />
             </div>
@@ -38,6 +39,7 @@ class App extends React.Component {
                 cancelLabel='<i class="fa fa-times"></i>'
                 saveLabel='<i class="far fa-save"></i>'
                 needsSaveOnKeyPress={(e) => true}
+                formElemClass="foobar"
                 // onClickEdit={() => this.onClickEdit()}
               />
             </div>

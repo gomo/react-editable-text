@@ -19,4 +19,4 @@ gulp.task('watch', function() {
   gulp.watch(['src/*'], ['build-src']);
 });
 
-gulp.task('default', ['build-src', 'watch']);
+gulp.task('default', ['build-src']);

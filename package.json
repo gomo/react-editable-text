@@ -1,11 +1,11 @@
 {
   "name": "react-editable-text",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Editable text line or box component for [facebook react](https://facebook.github.io/react/).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:src": "gulp build-src"
+    "build": "gulp build-src"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,6 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "classnames": "^2.2.6"
   }
 }

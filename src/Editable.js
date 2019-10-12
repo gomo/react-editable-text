@@ -116,10 +116,22 @@ export default class Editable extends React.Component {
 }
 
 Editable.propTypes = {
-  label: PropTypes.string,
-  cancelLabel: PropTypes.string,
-  saveLabel: PropTypes.string,
-  editLabel: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]),
+  cancelLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]),
+  saveLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]),
+  editLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element
+  ]),
   value: PropTypes.string,
   saveBtnClass: PropTypes.string,
   cancelBtnClass: PropTypes.string,

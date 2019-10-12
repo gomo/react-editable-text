@@ -501,10 +501,10 @@ function (_React$Component) {
 
 
 Editable.propTypes = {
-  label: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  cancelLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  saveLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  editLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  label: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.element]),
+  cancelLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.element]),
+  saveLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.element]),
+  editLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.element]),
   value: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   saveBtnClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
   cancelBtnClass: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,

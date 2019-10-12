@@ -7,19 +7,29 @@ export default class EditableBox extends Editable {
     return (
       <div className="react-editable-text box">
         <div className="header d-flex justify-content-between align-items-center">
-          <label className="mb-0" dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'label')}></label>
+          <label className="mb-0" dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'label')}>
+            {this.getChildDom(this.props, 'label')}
+          </label>
           <div className="buttons">
             {(() => {
               if(this.state.editable){
                 return (
                   <div>
-                    <button className={this.props.cancelBtnClass} onClick={(e) => {this.onClickCancel(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'cancelLabel')}></button>
+                    <button className={this.props.cancelBtnClass} onClick={(e) => {this.onClickCancel(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'cancelLabel')}>
+                      {this.getChildDom(this.props, 'cancelLabel')}
+                    </button>
                     &nbsp;
-                    <button className={this.props.saveBtnClass} onClick={(e) => {this.onClickSave(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'saveLabel')}></button>
+                    <button className={this.props.saveBtnClass} onClick={(e) => {this.onClickSave(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'saveLabel')}>
+                      {this.getChildDom(this.props, 'saveLabel')}
+                    </button>
                   </div>
                 )
               } else {
-                return (<button className={this.props.editBtnClass} onClick={(e) => {this.onClickEdit(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'editLabel')}></button>)
+                return (
+                  <button className={this.props.editBtnClass} onClick={(e) => {this.onClickEdit(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'editLabel')}>
+                    {this.getChildDom(this.props, 'editLabel')}
+                  </button>
+                )
               }
             })()}
           </div>

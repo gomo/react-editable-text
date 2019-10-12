@@ -53,6 +53,17 @@ class App extends React.Component {
                 formElemClass="foobar"
                 // onClickEdit={() => this.onClickEdit()}
               />
+              <Box
+                label={<span style={{color: 'red'}}>label</span>}
+                onSave={(value, editable) => this.onSaveName(value, editable)}
+                value={this.state.value}
+                editLabel={<span style={{color: 'red'}}>E</span>}
+                cancelLabel={<span style={{color: 'red'}}>X</span>}
+                saveLabel={<span style={{color: 'red'}}>S</span>}
+                needsSaveOnKeyPress={(e) => true}
+                formElemClass="foobar"
+                // onClickEdit={() => this.onClickEdit()}
+              />
             </div>
           </div>
         </div>

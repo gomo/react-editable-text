@@ -274,6 +274,36 @@ function (_React$Component) {
         },
         formElemClass: "foobar" // onClickEdit={() => this.onClickEdit()}
 
+      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_EditableBox__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        label: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "label"),
+        onSave: function onSave(value, editable) {
+          return _this2.onSaveName(value, editable);
+        },
+        value: this.state.value,
+        editLabel: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "E"),
+        cancelLabel: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "X"),
+        saveLabel: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "S"),
+        needsSaveOnKeyPress: function needsSaveOnKeyPress(e) {
+          return true;
+        },
+        formElemClass: "foobar" // onClickEdit={() => this.onClickEdit()}
+
       }))));
     }
   }]);
@@ -559,7 +589,7 @@ function (_Editable) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "mb-0",
         dangerouslySetInnerHTML: this.getInnerHtml(this.props, 'label')
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.getChildDom(this.props, 'label')), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttons"
       }, function () {
         if (_this.state.editable) {
@@ -569,13 +599,13 @@ function (_Editable) {
               _this.onClickCancel(e);
             },
             dangerouslySetInnerHTML: _this.getInnerHtml(_this.props, 'cancelLabel')
-          }), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          }, _this.getChildDom(_this.props, 'cancelLabel')), "\xA0", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             className: _this.props.saveBtnClass,
             onClick: function onClick(e) {
               _this.onClickSave(e);
             },
             dangerouslySetInnerHTML: _this.getInnerHtml(_this.props, 'saveLabel')
-          }));
+          }, _this.getChildDom(_this.props, 'saveLabel')));
         } else {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             className: _this.props.editBtnClass,
@@ -583,7 +613,7 @@ function (_Editable) {
               _this.onClickEdit(e);
             },
             dangerouslySetInnerHTML: _this.getInnerHtml(_this.props, 'editLabel')
-          });
+          }, _this.getChildDom(_this.props, 'editLabel'));
         }
       }())), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body"

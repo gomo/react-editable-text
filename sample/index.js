@@ -226,6 +226,36 @@ function (_React$Component) {
         },
         formElemClass: "foobar" // onClickEdit={() => this.onClickEdit()}
 
+      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_src_EditableLine__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        label: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "label"),
+        onSave: function onSave(value, editable) {
+          return _this2.onSaveName(value, editable);
+        },
+        value: this.state.value,
+        editLabel: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "E"),
+        cancelLabel: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "X"),
+        saveLabel: react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("span", {
+          style: {
+            color: 'red'
+          }
+        }, "S"),
+        needsSaveOnKeyPress: function needsSaveOnKeyPress(e) {
+          return true;
+        },
+        formElemClass: "foobar" // onClickEdit={() => this.onClickEdit()}
+
       }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "card mb-5"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -335,8 +365,8 @@ function (_React$Component) {
       }
     }
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
+    key: "UNSAFE_componentWillReceiveProps",
+    value: function UNSAFE_componentWillReceiveProps(nextProps) {
       if (nextProps.value && this.props.value != nextProps.value) {
         this.setState({
           value: nextProps.value
@@ -402,9 +432,14 @@ function (_React$Component) {
   }, {
     key: "getInnerHtml",
     value: function getInnerHtml(target, key) {
-      return {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.isValidElement(target[key]) ? null : {
         __html: target[key]
       };
+    }
+  }, {
+    key: "getChildDom",
+    value: function getChildDom(target, key) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.isValidElement(target[key]) ? target[key] : null;
     }
   }, {
     key: "onKeyPress",
@@ -661,12 +696,12 @@ function (_Editable) {
               _this.onClickCancel(e);
             },
             dangerouslySetInnerHTML: _this.getInnerHtml(_this.props, 'cancelLabel')
-          });
+          }, _this.getChildDom(_this.props, 'cancelLabel'));
         } else if (_this.props.label) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "input-group-text",
             dangerouslySetInnerHTML: _this.getInnerHtml(_this.props, 'label')
-          });
+          }, _this.getChildDom(_this.props, 'label'));
         }
       }()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onClick: function onClick(e) {
@@ -701,7 +736,7 @@ function (_Editable) {
               _this.onClickSave(e);
             },
             dangerouslySetInnerHTML: _this.getInnerHtml(_this.props, 'saveLabel')
-          });
+          }, _this.getChildDom(_this.props, 'saveLabel'));
         } else {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
             className: _this.props.editBtnClass,
@@ -710,7 +745,7 @@ function (_Editable) {
               _this.onClickEdit(e);
             },
             dangerouslySetInnerHTML: _this.getInnerHtml(_this.props, 'editLabel')
-          });
+          }, _this.getChildDom(_this.props, 'editLabel'));
         }
       }()));
     }

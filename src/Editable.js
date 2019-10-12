@@ -33,7 +33,7 @@ export default class Editable extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
     if(nextProps.value && this.props.value != nextProps.value){
       this.setState({
         value: nextProps.value
@@ -88,7 +88,11 @@ export default class Editable extends React.Component {
   }
 
   getInnerHtml(target, key){
-    return {__html: target[key]}
+    return React.isValidElement(target[key]) ? null : {__html: target[key]}
+  }
+
+  getChildDom(target, key){
+    return React.isValidElement(target[key]) ? target[key] : null
   }
 
   onKeyPress(e){

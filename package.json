@@ -17,6 +17,9 @@
     "url": "https://github.com/gomo/react-editable-text/issues"
   },
   "homepage": "https://github.com/gomo/react-editable-text#readme",
+  "browser":{
+    "child_process": false
+  },
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",

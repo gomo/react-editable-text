@@ -10,11 +10,15 @@ export default class EditableLine extends Editable {
           {(() => {
             if(this.state.editable){
               return (
-                <button className={this.props.cancelBtnClass} type="button" onClick={(e) => {this.onClickCancel(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'cancelLabel')}></button>
+                <button className={this.props.cancelBtnClass} type="button" onClick={(e) => {this.onClickCancel(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'cancelLabel')}>
+                  {this.getChildDom(this.props, 'cancelLabel')}
+                </button>
               );
             } else if(this.props.label){
               return (
-                <span className="input-group-text" dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'label')}></span>
+                <span className="input-group-text" dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'label')}>
+                  {this.getChildDom(this.props, 'label')}
+                </span>
               );
             }
           })()}
@@ -24,11 +28,15 @@ export default class EditableLine extends Editable {
         {(() => {
           if(this.state.editable){
             return (
-              <button className={this.props.saveBtnClass} type="button" onClick={(e) => {this.onClickSave(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'saveLabel')}></button>
+              <button className={this.props.saveBtnClass} type="button" onClick={(e) => {this.onClickSave(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'saveLabel')}>
+                {this.getChildDom(this.props, 'saveLabel')}
+              </button>
             )
           } else {
             return (
-              <button className={this.props.editBtnClass} type="button" onClick={(e) => {this.onClickEdit(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'editLabel')}></button>
+              <button className={this.props.editBtnClass} type="button" onClick={(e) => {this.onClickEdit(e)}} dangerouslySetInnerHTML={this.getInnerHtml(this.props, 'editLabel')}>
+                {this.getChildDom(this.props, 'editLabel')}
+              </button>
             )
           }
         })()}
